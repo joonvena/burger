@@ -10,9 +10,10 @@ class MapComponent extends Component {
         this.state = { latitude: "", longitude: "" };
       }
 
+    
     geoLocate() {
         Geocode.setApiKey(geoApi);
-        const address = this.props.restaurants.data[0].address + ", " + this.props.restaurants.data[0].city;
+        const address = this.props.restaurant_addresss + ", " + this.props.restaurant_city;
         Geocode.fromAddress(address).then(
             response => {
               this.setState({latitude: response.results[0].geometry.location.lat});
@@ -25,6 +26,7 @@ class MapComponent extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.restaurant_address)
         this.geoLocate();
     }
 

@@ -12,8 +12,11 @@ class RestaurantComments extends Component {
         console.log("hello")
     }
 
+    
+
     renderCommentsList() {
-        return _.map(this.props.restaurants.data[0].comments, comment => {
+        return _.map(this.props.comments_list, comment => {
+            console.log(this.props.comments_list)
             return (
 
         <div key={comment._id}>

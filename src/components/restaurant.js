@@ -11,11 +11,6 @@ class Restaurant extends Component {
   state = {
     restaurant: this.props.location.state.restaurant
   }
-  componentDidMount() {
-    console.log(this.props.location.state.restaurant)
-    const { id } = this.props.location.state.restaurant._id;
-    this.props.getRestaurantReviewAverage(id);
-  }
 
 
   render() {
@@ -28,8 +23,6 @@ class Restaurant extends Component {
     return <div>Virhe tapahtui!</div>
   }
 
-
-return _.map(this.props.location.state.restaurant, restaurant => {
     return (
       <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
         <div className="uk-grid uk-grid-collapse  restaurant_info_section" uk-grid="true">
@@ -42,9 +35,9 @@ return _.map(this.props.location.state.restaurant, restaurant => {
                     <img className="uk-border-circle" width="40" height="40" src="/images/burger_review.png" />
                   </div>
                   <div className="uk-width-2-3">
-                    <h3 className="uk-card-title uk-margin-remove-bottom">{restaurant.name}</h3>
-                    <p className="uk-text-meta uk-margin-remove-top">{restaurant.address},
-                                     {restaurant.city}</p>
+                    <h3 className="uk-card-title uk-margin-remove-bottom">{this.state.restaurant.name}</h3>
+                    <p className="uk-text-meta uk-margin-remove-top">{this.state.restaurant.address},
+                                     {this.state.restaurant.city}</p>
                   </div>
 
                   <div className="uk-width-auto uk-position-right" style={{ 'marginRight': '20px', 'marginTop': '20px' }}>
@@ -61,7 +54,7 @@ return _.map(this.props.location.state.restaurant, restaurant => {
               <div className="uk-card uk-card-body_new uk-card-body uk-card-default uk-grid-collapse uk-child-width-expand uk-margin-remove-top"
                 uk-grid="true">
                 <div className="uk-flex-last uk-card-media-right uk-cover-container map_container">
-                  <Map />
+                  <Map restaurant_address={this.state.restaurant.address} restaurant_city={this.state.restaurant.city} />
                   <canvas width="600" height="400"></canvas>
                 </div>
 
@@ -95,8 +88,8 @@ return _.map(this.props.location.state.restaurant, restaurant => {
 
 
               <div className="uk-width-1-1 comment" style={{ 'margin-bottom': '150px' }}>
-                {restaurant.comments.length > 0 ? (
-                  <RestaurantComments />) : (null)}
+                {this.state.restaurant.comments.length > 0 ? (
+                  <RestaurantComments comments_list={this.state.restaurant.comments}/>) : (null)}
               </div>
 
             </div>
@@ -107,9 +100,9 @@ return _.map(this.props.location.state.restaurant, restaurant => {
 
     );
   }
-  )
+  
 }
-}
+
 
 const mapStateToProps = (state) => {
   return {
