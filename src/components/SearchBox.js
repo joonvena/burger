@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash';
 import {connect} from 'react-redux';
-import { getAllRestaurants } from '../actions/actions_restaurant';
+import { getAllRestaurants, getRestaurantReviewAverage } from '../actions/actions_restaurant';
 import {Redirect, Link} from 'react-router-dom';
 
 class SearchBox extends Component {
@@ -75,4 +75,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps, {getAllRestaurants})(SearchBox);
+export default connect(mapStateToProps, {getAllRestaurants, getRestaurantReviewAverage})(SearchBox);
