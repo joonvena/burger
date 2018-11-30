@@ -34,10 +34,12 @@ class Restaurant extends Component {
                   <div className="uk-width-auto">
                     <img className="uk-border-circle" width="40" height="40" src="/images/burger_review.png" />
                   </div>
-                  <div className="uk-width-2-3">
+                  <div className="uk-width-2-3@s">
+                  <div className="uk-width-1-1">
                     <h3 className="uk-card-title uk-margin-remove-bottom">{this.state.restaurant.name}</h3>
                     <p className="uk-text-meta uk-margin-remove-top">{this.state.restaurant.address},
                                      {this.state.restaurant.city}</p>
+                  </div>
                   </div>
 
                   <div className="uk-width-auto uk-position-right" style={{ 'marginRight': '20px', 'marginTop': '20px' }}>
@@ -51,7 +53,7 @@ class Restaurant extends Component {
                 <hr className="uk-diver-small" />
               </div>
 
-              <div className="uk-card uk-card-body_new uk-card-body uk-card-default uk-grid-collapse uk-child-width-expand uk-margin-remove-top"
+              <div className="uk-card uk-card-body_new uk-card-body uk-card-default uk-grid-collapse uk-child-width-expand@s uk-child-width-1-1 uk-margin-remove-top"
                 uk-grid="true">
                 <div className="uk-flex-last uk-card-media-right uk-cover-container map_container">
                   <Map restaurant_address={this.state.restaurant.address} restaurant_city={this.state.restaurant.city} />
@@ -65,18 +67,18 @@ class Restaurant extends Component {
                     <tbody>
                       <tr>
                         <td>Hampurilainen:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-2x"
-                          fullSymbol="fa fa-star fa-2x" /></td>
+                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
                       <tr>
                         <td>Lisukkeet:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-2x"
-                          fullSymbol="fa fa-star fa-2x" /></td>
+                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
                       <tr>
                         <td>Ravintola:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-2x"
-                          fullSymbol="fa fa-star fa-2x" /></td>
+                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
 
                     </tbody>

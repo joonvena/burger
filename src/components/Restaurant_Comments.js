@@ -31,8 +31,8 @@ class RestaurantComments extends Component {
                         <h4 className="uk-comment-title uk-margin-remove"><a className="uk-link-reset"
                                 href="#">{comment.nickname}</a></h4>
                         <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                        <li><Rating initialRating={comment.grade} readonly={true} style={{'color': '#ffd942'}} emptySymbol="fa fa-star-o fa-2x"
-  fullSymbol="fa fa-star fa-2x" /></li>
+                        <li><Rating initialRating={comment.grade} readonly={true} style={{'color': '#ffd942'}} emptySymbol="fa fa-star-o fa-lg"
+  fullSymbol="fa fa-star fa-lg" /></li>
                         </ul>
                     </div>
                 </header>

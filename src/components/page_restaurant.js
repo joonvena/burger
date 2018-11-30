@@ -66,34 +66,34 @@ class RestaurantPage extends Component {
                                         <div className="uk-card-body_new_index uk-width-expand">
                                             <h3 className="uk-card-title">Arvosanat</h3>
                                             <table class="uk-table">
-                                            <tbody>
-        <tr>
-                                            <td>Hampurilainen:</td>
-                                            <td><Rating initialRating={average.average} readonly={true} style={{'color': '#ffd942'}} emptySymbol="fa fa-star-o fa-2x"
-  fullSymbol="fa fa-star fa-2x" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lisukkeet:</td>
-  <td><Rating initialRating={average.average} readonly={true} style={{'color': '#ffd942'}} emptySymbol="fa fa-star-o fa-2x"
-                                            fullSymbol="fa fa-star fa-2x" /></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ravintola:</td>
-                                            <td><Rating initialRating={average.average} readonly={true} style={{'color': '#ffd942'}} emptySymbol="fa fa-star-o fa-2x"
-  fullSymbol="fa fa-star fa-2x" /></td>
-                                                </tr>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Hampurilainen:</td>
+                                                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-1x"
+                                                            fullSymbol="fa fa-star fa-1x" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Lisukkeet:</td>
+                                                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-1x"
+                                                            fullSymbol="fa fa-star fa-1x" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Ravintola:</td>
+                                                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-1x"
+                                                            fullSymbol="fa fa-star" /></td>
+                                                    </tr>
 
-  </tbody>
-  </table>
+                                                </tbody>
+                                            </table>
                                         </div>
-                                        
+
 
                                     </div>
-                                    
 
-                                    <div className="uk-width-1-1 comment" style={{'margin-bottom': '150px'}}>
+
+                                    <div className="uk-width-1-1 comment" style={{ 'margin-bottom': '150px' }}>
                                         {restaurant.comments.length > 0 ? (
-                                        <RestaurantComments />):(null)}
+                                            <RestaurantComments />) : (null)}
                                     </div>
 
                                 </div>
