@@ -9,6 +9,7 @@ import NavigationBar from './components/NavigationBar';
 import SearchBox from './components/SearchBox';
 import RestaurantPAge from './components/page_restaurant';
 import AddRestaurant from './components/page_addrestaurant';
+import Restaurant from './components/restaurant';
 
 
 ReactDOM.render(
@@ -39,6 +40,7 @@ ReactDOM.render(
                 <Switch>
                     <Route path="/lisaaravintola" component={AddRestaurant}/>
                     <Route path="/ravintolat/:id/" component={RestaurantPage}/>
+                    <Route path ="/restaurants/restaurant" component={Restaurant}/>
                     <Route path="/" component={IndexPage}/> 
                 </Switch>
                 </div>

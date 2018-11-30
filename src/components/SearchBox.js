@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import _ from 'lodash';
 import {connect} from 'react-redux';
 import { getAllRestaurants } from '../actions/actions_restaurant';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
 class SearchBox extends Component {
 
     state = {
         restaurantSelect: '',
-        redirect: false
+        restaurantWasFound: false,
+        restaurant: null
     }
 
     componentDidMount() {
@@ -21,25 +22,23 @@ class SearchBox extends Component {
         }))
     }
 
+
+
     searchRestaurant = (event) => {
-        console.log(this.props)
         event.preventDefault()
         for(var i = 0; i < this.props.restaurants.data.length; i++){
             if(this.state.restaurantSelect === this.props.restaurants.data[i].name){
-                let id = this.props.restaurants.data[i]._id          
+                let id = this.props.restaurants.data[i]._id
+                let restaurant = this.props.restaurants.data[i];          
                 this.setState(() =>({
-                    restaurantId: id}), () => (this.setState({redirect: true}))
+                    restaurant: restaurant,
+                    restaurantId: id}), () => (this.setState({restaurantWasFound: true}))
                 )
             }
         }
     }
 
     render() {
-
-        if(this.state.redirect){
-            let string = '/ravintolat/' + this.state.restaurantId;
-            return <Redirect to={string}/>
-        }
 
         return (
             <div>
@@ -53,6 +52,14 @@ class SearchBox extends Component {
                                     </div>
                                 <div class="uk-width-1-4"></div>
                             </div>
+                            {this.state.restaurantWasFound ? (
+                                <Link
+                                to={{
+                                  pathname: "/restaurants/restaurant",
+                                  state:  {restaurant:this.state.restaurant}
+                                }}
+                              >Ravintola</Link>
+                                ):(null)}
             </div>
         );
     }

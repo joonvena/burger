@@ -28,11 +28,7 @@ class RestaurantPage extends Component {
         return _.map(this.props.restaurants.data, restaurant => {
             return _.map(this.props.average.data, average => {
                 return (
-
-
-
                     <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
-
                         <div className="uk-grid uk-grid-collapse  restaurant_info_section" uk-grid="true">
                             <div className="uk-width-1-4"></div>
                             <div className="uk-width-1-2@s">
@@ -46,8 +42,6 @@ class RestaurantPage extends Component {
                                                 <h3 className="uk-card-title uk-margin-remove-bottom">{restaurant.name}</h3>
                                                 <p className="uk-text-meta uk-margin-remove-top">{restaurant.address},
                                                {restaurant.city}</p>
-
-
                                             </div>
 
                                             <div className="uk-width-auto uk-position-right" style={{ 'marginRight': '20px', 'marginTop': '20px' }}>
