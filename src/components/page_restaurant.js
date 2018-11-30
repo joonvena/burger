@@ -98,9 +98,8 @@ class RestaurantPage extends Component {
                                     
 
                                     <div className="uk-width-1-1 comment" style={{'margin-bottom': '150px'}}>
-                                    
-                                        <RestaurantComments />
-                                    
+                                        {restaurant.comments.length > 0 ? (
+                                        <RestaurantComments />):(null)}
                                     </div>
 
                                 </div>

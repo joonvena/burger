@@ -8,6 +8,9 @@ class RestaurantComments extends Component {
     /**
      * @desc This component renders list of restaurants
      */
+    componentDidMount() {
+        console.log("hello")
+    }
 
     renderCommentsList() {
         return _.map(this.props.restaurants.data[0].comments, comment => {

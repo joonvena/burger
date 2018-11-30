@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 import Geocode from 'react-geocode';
 import { connect } from 'react-redux';
+import {mapiApi, geoApi} from '../env/keys.js'
 
 class MapComponent extends Component {
     constructor() {
@@ -10,7 +11,7 @@ class MapComponent extends Component {
       }
 
     geoLocate() {
-        Geocode.setApiKey("AIzaSyDCiPRjoA8JyZzu1DSeD4mwpxA8eZ6aM0g");
+        Geocode.setApiKey(geoApi);
         const address = this.props.restaurants.data[0].address + ", " + this.props.restaurants.data[0].city;
         Geocode.fromAddress(address).then(
             response => {
@@ -71,6 +72,6 @@ const mapStateToProps = (state) => {
 };
 
 const WrappedContainer = GoogleApiWrapper({
-    apiKey: 'AIzaSyDCiPRjoA8JyZzu1DSeD4mwpxA8eZ6aM0g'
+    apiKey: mapiApi
  })(MapComponent);
  export default connect(mapStateToProps)(WrappedContainer);
