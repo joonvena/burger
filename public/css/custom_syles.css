@@ -1,0 +1,116 @@
+body {
+    color: #FFF !important;
+}
+
+
+nav a {
+    color: #FFF !important;
+}
+
+.uk-navbar-right {
+    padding-right: 40px;
+}
+
+.burger_header  {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold;
+    font-size: 60px;
+    color: #FFF;
+    text-shadow: 2px 2px #000;
+}
+
+.uk-navbar-left {
+    padding-left: 30px;
+}
+
+.search_restaurant_section {
+    margin-top: 150px;
+}
+
+.search_bar {
+    background-color: #FFF !important;
+    opacity: 0.8;
+    font-size: 20px !important;
+}
+
+.restaurant_info_section {
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  
+    .restaurant_info_section {
+        margin-top: 50px;
+    }
+
+    .burger_header {
+        font-family: 'Oswald', sans-serif;
+        font-weight: bold;
+        font-size: 40px;
+        color: #FFF;
+    }
+
+    .menu_button {
+        margin-top: 60px;
+    }
+
+    
+}
+
+.menu_button {
+        margin-top: 60px;
+    }
+
+.uk-card-body_new {
+    padding-top: 20px;
+}
+
+.uk-card-body_new_index {
+    padding-right: 10px;
+}
+
+.comment {
+    background-color: #FFF;
+    color: #CCC;
+    padding: 10px;
+}
+
+.comment p {
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+}
+
+.uk-panel-scrollable {
+    overflow: auto;
+    border: 0;
+    z-index: 9999;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+.uk-comment-body p {
+    color: #000;
+}
+
+
