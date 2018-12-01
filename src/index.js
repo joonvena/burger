@@ -20,20 +20,9 @@ ReactDOM.render(
             <img src="/images/burgerheader.jpg" alt="" uk-cover="true" />
             <div className="uk-position-top">
 
-                    <nav className="uk-navbar uk-padding-large">
+       
 
-                    <div id="offcanvas-slide" style={{'zIndex': '1000000', 'position': 'absolute'}} uk-offcanvas="true">
-                        <div className="uk-offcanvas-bar">
-
-                            <ul className="uk-nav uk-nav-default">
-                                <li><a href="#">Etusivu</a></li>
-                                <li><a href="#">Ravintolat</a></li>
-                                <li><a href="#">Lisää ravintola</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    </nav>
+                    
                 <Switch>
                     <Route path="/lisaaravintola" component={AddRestaurant}/>
                     <Route path="/ravintolat/:id/" component={RestaurantPage}/>
