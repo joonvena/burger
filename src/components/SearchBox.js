@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { getAllRestaurants, getRestaurantReviewAverage } from '../actions/actions_restaurant';
 import { Redirect, Link } from 'react-router-dom';
+import RestaurantCard from '../components/restaurant_card';
 
 class SearchBox extends Component {
 
@@ -53,22 +54,12 @@ class SearchBox extends Component {
                     </div>
                     <div class="uk-width-1-4"></div>
                 </div>
-                <div class="uk-grid uk-grid-collapse search_restaurant_section" style={{ 'marginTop': '50px' }} uk-grid>
-                    <div class="uk-width-1-4"></div>
-                    <div class="uk-width-1-2">
-                        {this.state.restaurantWasFound ? (
+            
 
-                            <Link
-                                to={{
-                                    pathname: "/restaurants/restaurant",
-                                    state: { restaurant: this.state.restaurant }
-                                }}
-                            >{this.state.restaurant.name}</Link>
-                        ) : (null)}
-                    </div>
-                    <div class="uk-width-1-4"></div>
-                </div>
+            <RestaurantCard restaurant_found={this.state.restaurantWasFound} restaurant={this.state.restaurant} />
+
             </div>
+               
         );
     }
 }

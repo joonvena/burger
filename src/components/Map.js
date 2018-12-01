@@ -13,7 +13,7 @@ class MapComponent extends Component {
     
     geoLocate() {
         Geocode.setApiKey(geoApi);
-        const address = this.props.restaurant_addresss + ", " + this.props.restaurant_city;
+        const address = this.props.restaurant_address + ", " + this.props.restaurant_city;
         Geocode.fromAddress(address).then(
             response => {
               this.setState({latitude: response.results[0].geometry.location.lat});
