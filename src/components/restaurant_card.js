@@ -6,7 +6,6 @@ export default class restaurant_card extends Component {
   render() {
     return (
       <div>
-
            <div className="uk-grid uk-grid-collapse search_restaurant_section" style={{ 'marginTop': '50px' }} uk-grid>
                     <div className="uk-width-1-4"></div>
                     <div className="uk-width-1-2@s">
@@ -43,6 +42,7 @@ export default class restaurant_card extends Component {
                     <div className="uk-width-1-4"></div>
                 </div>
             </div>
+        
     )
   }
 }

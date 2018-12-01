@@ -57,10 +57,12 @@ class SearchBox extends Component {
                     <div className="uk-width-1-4"></div>
                 </div>
             
-
+            
             <RestaurantCard restaurant_found={this.state.restaurantWasFound} restaurant={this.state.restaurant} />
 
             </div>
+
+           
                
         );
     }

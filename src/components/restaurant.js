@@ -8,6 +8,12 @@ import Map from './Map';
 
 class Restaurant extends Component {
 
+  componentDidMount() {
+    const id  = this.state.restaurant._id;
+    this.props.getRestaurantById(id);
+    this.props.getRestaurantReviewAverage(id);
+}
+
   state = {
     restaurant: this.props.location.state.restaurant
   }
@@ -22,6 +28,8 @@ class Restaurant extends Component {
   if(this.props.hasError) {
     return <div>Virhe tapahtui!</div>
   }
+
+  console.log(this.props.restaurants.data)
 
     return (
       <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
@@ -91,7 +99,7 @@ class Restaurant extends Component {
 
               <div className="uk-width-1-1 comment" style={{ 'margin-bottom': '150px' }}>
                 {this.state.restaurant.comments.length > 0 ? (
-                  <RestaurantComments comments_list={this.state.restaurant.comments}/>) : (null)}
+                  <RestaurantComments comments_list={this.state.restaurant.comments} comments={this.props.restaurants.data}/>) : (null)}
               </div>
 
             </div>
