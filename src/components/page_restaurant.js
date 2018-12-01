@@ -45,8 +45,8 @@ class RestaurantPage extends Component {
                                             </div>
 
                                             <div className="uk-width-auto uk-position-right" style={{ 'marginRight': '20px', 'marginTop': '20px' }}>
-                                                <a href="#offcanvas-slide"
-                                                    uk-toggle><span uk-icon="icon: menu; ratio: 2"></span></a>
+                    
+                                                <a uk-toggle="target: #offcanvas-slide" ><span uk-icon="icon: menu; ratio: 2"></span></a>
                                             </div>
 
                                         </div>

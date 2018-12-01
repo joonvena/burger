@@ -22,7 +22,7 @@ export default class restaurant_card extends Component {
                                 }}
                             >{this.props.restaurant.name}</Link></h3>
                             
-                            <div>
+                            <div style={{'marginBottom': '20px'}}>
                             <span uk-icon="icon: home; ratio: 1.5"></span>
                             <span className="uk-text-middle" style={{'margin-left': '15px'}}>{this.props.restaurant.address}, {this.props.restaurant.city}</span>
                             </div>

@@ -22,7 +22,7 @@ ReactDOM.render(
 
                     <nav className="uk-navbar uk-padding-large">
 
-                    <div id="offcanvas-slide" style={{'zIndex': '1000000', 'position': 'absolute'}} uk-offcanvas>
+                    <div id="offcanvas-slide" style={{'zIndex': '1000000', 'position': 'absolute'}} uk-offcanvas="true">
                         <div className="uk-offcanvas-bar">
 
                             <ul className="uk-nav uk-nav-default">
