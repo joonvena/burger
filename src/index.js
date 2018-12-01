@@ -20,9 +20,6 @@ ReactDOM.render(
             <img src="/images/burgerheader.jpg" alt="" uk-cover="true" />
             <div className="uk-position-top">
 
-                    <div className="uk-navbar-center">
-                            <div className="burger_header">BurgerLoversFinland</div>
-                    </div>
                     <nav className="uk-navbar uk-padding-large">
 
                     <div id="offcanvas-slide" style={{'zIndex': '1000000', 'position': 'absolute'}} uk-offcanvas>

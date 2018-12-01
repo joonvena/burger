@@ -26,7 +26,6 @@ class MapComponent extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.restaurant_address)
         this.geoLocate();
     }
 

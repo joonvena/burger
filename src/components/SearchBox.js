@@ -44,15 +44,17 @@ class SearchBox extends Component {
 
         return (
             <div>
-                <div class="uk-grid uk-grid-collapse search_restaurant_section" uk-grid>
-                    <div class="uk-width-1-4"></div>
-                    <div class="uk-width-1-2">
+                <div className="uk-grid uk-grid-collapse search_restaurant_section" uk-grid>
+                    <div className="uk-width-1-4"></div>
+                    <div className="uk-width-1-2@s">
+                    <div className="uk-width-1-1" style={{'paddingLeft': '5px', 'paddingRight': '5px'}}>
                         <form class="uk-search uk-search-large uk-width-1-1">
-                            <input class="uk-search-input search_bar" style={{ 'paddingLeft': '20px' }} type="search" placeholder="Hae ravintolaa..." onInput={(event) => this.handleInput(event.target.value)} />
-                            <button type="submit" onClick={this.searchRestaurant}>Search</button>
+                            <input className="uk-search-input search_bar" style={{ 'paddingLeft': '20px' }} type="search" placeholder="Hae ravintolaa..." onInput={(event) => this.handleInput(event.target.value)} />
+                            <button className="uk-button uk-button-danger uk-button-large uk-align-center" onClick={this.searchRestaurant}>Haku</button>
                         </form>
                     </div>
-                    <div class="uk-width-1-4"></div>
+                    </div>
+                    <div className="uk-width-1-4"></div>
                 </div>
             
 
