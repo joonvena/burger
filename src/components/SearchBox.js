@@ -36,10 +36,19 @@ class SearchBox extends Component {
                     restaurantId: id
                 }), () => (this.setState({ restaurantWasFound: true }))
                 )
+            
             }
+            else if (this.state.restaurantSelect === this.props.restaurants.data[i].city) {
+                let id = this.props.restaurants.data[i]._id
+                let restaurant = this.props.restaurants.data[i];
+                this.setState(() => ({
+                    restaurant: restaurant,
+                    restaurantId: id
+                }), () => (this.setState({ restaurantWasFound: true }))
+                )
         }
     }
-
+}
     render() {
 
         return (
