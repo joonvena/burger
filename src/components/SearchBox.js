@@ -10,7 +10,8 @@ class SearchBox extends Component {
     state = {
         restaurantSelect: '',
         restaurantWasFound: false,
-        restaurant: null
+        restaurant: null,
+        foundRestaurants: []
     }
 
     componentDidMount() {
@@ -27,29 +28,30 @@ class SearchBox extends Component {
 
     searchRestaurant = (event) => {
         event.preventDefault()
+        let restaurants = [];
         for (var i = 0; i < this.props.restaurants.data.length; i++) {
             if (this.state.restaurantSelect === this.props.restaurants.data[i].name) {
-                let id = this.props.restaurants.data[i]._id
                 let restaurant = this.props.restaurants.data[i];
-                this.setState(() => ({
-                    restaurant: restaurant,
-                    restaurantId: id
-                }), () => (this.setState({ restaurantWasFound: true }))
-                )
-            
+                restaurants.push(restaurant);
             }
             else if (this.state.restaurantSelect === this.props.restaurants.data[i].city) {
-                let id = this.props.restaurants.data[i]._id
                 let restaurant = this.props.restaurants.data[i];
-                this.setState(() => ({
-                    restaurant: restaurant,
-                    restaurantId: id
-                }), () => (this.setState({ restaurantWasFound: true }))
-                )
+                restaurants.push(restaurant);
+             
         }
     }
+    console.log(restaurants);
+
+    this.setState(() => ({
+        foundRestaurants: restaurants
+    }), () => (this.setState({ restaurantWasFound: true }))
+    )
 }
+
+
     render() {
+
+
 
         return (
             <div>
@@ -61,14 +63,22 @@ class SearchBox extends Component {
                             <input className="uk-search-input search_bar" style={{ 'paddingLeft': '20px' }} type="search" placeholder="Hae ravintolaa..." onInput={(event) => this.handleInput(event.target.value)} />
                             <button className="uk-button uk-button-danger uk-button-large uk-align-center" onClick={this.searchRestaurant}>Haku</button>
                         </form>
+                        {this.state.foundRestaurants.map(restaurant => {
+                                return(
+                            <RestaurantCard restaurant_found={true} restaurant={restaurant}/>)
+                        })}
                     </div>
+                    <div>
+                    
+                    </div>
+                    <div>
+                </div>
                     </div>
                     <div className="uk-width-1-4"></div>
+                
                 </div>
-            
-            
-            <RestaurantCard restaurant_found={this.state.restaurantWasFound} restaurant={this.state.restaurant} />
-
+                 
+    
             </div>
 
            
