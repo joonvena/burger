@@ -12,6 +12,7 @@ class SearchBox extends Component {
     state = {
         restaurantSelect: '',
         restaurantWasFound: false,
+        show_modal: false,
         restaurant: null,
         foundRestaurants: []
     }
@@ -72,7 +73,7 @@ class SearchBox extends Component {
                                         <Col xs={12} sm={6} className="result_list">
                                             {this.state.foundRestaurants.map(restaurant => {
                                                 return (
-                                                    <RestaurantCard restaurant_found={true} restaurant={restaurant} />)
+                                                    <RestaurantCard restaurant_found={true} show_modal={true} restaurant={restaurant} />)
                                             })}
                                         </Col>
                                         <Col xs={12} sm={3} />
