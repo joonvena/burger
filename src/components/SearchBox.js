@@ -3,16 +3,13 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { getAllRestaurants, getRestaurantReviewAverage } from '../actions/actions_restaurant';
 import { Redirect, Link } from 'react-router-dom';
-import { Col, FormControl, Button, Row, Grid } from 'react-bootstrap';
 import RestaurantCard from '../components/restaurant_card';
-import AlertBox from '../components/AlertBox';
 
 class SearchBox extends Component {
 
     state = {
         restaurantSelect: '',
         restaurantWasFound: false,
-        show_modal: false,
         restaurant: null,
         foundRestaurants: []
     }
@@ -27,8 +24,6 @@ class SearchBox extends Component {
         }))
     }
 
-
-
     searchRestaurant = (event) => {
         event.preventDefault()
         let restaurants = [];
@@ -40,57 +35,54 @@ class SearchBox extends Component {
             else if (this.state.restaurantSelect === this.props.restaurants.data[i].city) {
                 let restaurant = this.props.restaurants.data[i];
                 restaurants.push(restaurant);
-
-            }
+             
         }
-
-        this.setState(() => ({
-            foundRestaurants: restaurants
-        }), () => (this.setState({ restaurantWasFound: true }))
-        )
     }
 
-
+    this.setState(() => ({
+        foundRestaurants: restaurants
+    }), () => (this.setState({ restaurantWasFound: true }))
+    )
+}
 
 
     render() {
+
+
+
         return (
             <div>
-                <Grid fluid className="splash_search">
-                    <Row className="show-grid information text-center">
-                        <Col xs={12} sm={12}>
-                            <Col xs={12} sm={3} />
-                            <Col xs={12} sm={6} className="site_container">
-                                <img src="/images/burger_review.png" className="header_logo" />
-                                <form>
-                                    <FormControl type="text" className="burger_search" placeholder="Hae ravintolaa" onInput={(event) => this.handleInput(event.target.value)} />
-                                    <br />
-                                    <Button type="submit" className="btn restaurant_search_button" onClick={this.searchRestaurant}>Haku</Button>
-                                </form>
-                                <Row className="show-grid" className="search_results" style={{ 'marginTop': '20px' }}>
-                                    <Col xs={12} sm={12}>
-                                        <Col xs={12} sm={3} />
-                                        <Col xs={12} sm={6} className="result_list">
-                                            {this.state.foundRestaurants.map(restaurant => {
-                                                return (
-                                                    <RestaurantCard restaurant_found={true} show_modal={true} restaurant={restaurant} />)
-                                            })}
-                                        </Col>
-                                        <Col xs={12} sm={3} />
-                                    </Col>
-                                </Row>
-                            </Col>
-                            <Col xs={12} sm={3} />
-                        </Col>
-                    </Row>
-
-
-                </Grid>
+                <div className="uk-grid uk-grid-collapse search_restaurant_section" uk-grid>
+                    <div className="uk-width-1-4"></div>
+                    <div className="uk-width-1-2@s">
+                    <div className="uk-width-1-1" style={{'paddingLeft': '5px', 'paddingRight': '5px'}}>
+                        <form class="uk-search uk-search-large uk-width-1-1">
+                            <input className="uk-search-input search_bar" style={{ 'paddingLeft': '20px' }} type="search" placeholder="Hae ravintolaa..." onInput={(event) => this.handleInput(event.target.value)} />
+                            <button className="uk-button uk-button-danger uk-button-large uk-align-center" onClick={this.searchRestaurant}>Haku</button>
+                        </form>
+                        {this.state.foundRestaurants.map(restaurant => {
+                                return(
+                            <RestaurantCard restaurant_found={true} restaurant={restaurant}/>)
+                        })}
+                    </div>
+                    <div>
+                    
+                    </div>
+                    <div>
+                </div>
+                    </div>
+                    <div className="uk-width-1-4"></div>
+                
+                </div>
+                 
+    
             </div>
+
+           
+               
         );
     }
 }
-
 
 
 const mapStateToProps = (state) => {

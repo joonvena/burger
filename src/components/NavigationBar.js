@@ -10,7 +10,7 @@ class NavigationBar extends Component {
             <Navbar fluid collapseOnSelect>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <a href="#home">BurgerLoversFinland</a>
+                      <Link to="/">BurgerLoversFinland</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle/>
                 </Navbar.Header>
