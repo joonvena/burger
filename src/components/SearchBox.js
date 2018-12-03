@@ -40,7 +40,6 @@ class SearchBox extends Component {
              
         }
     }
-    console.log(restaurants);
 
     this.setState(() => ({
         foundRestaurants: restaurants
@@ -55,6 +54,7 @@ class SearchBox extends Component {
 
         return (
             <div>
+                <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
                 <div className="uk-grid uk-grid-collapse search_restaurant_section" uk-grid>
                     <div className="uk-width-1-4"></div>
                     <div className="uk-width-1-2@s">
@@ -63,10 +63,12 @@ class SearchBox extends Component {
                             <input className="uk-search-input search_bar" style={{ 'paddingLeft': '20px' }} type="search" placeholder="Hae ravintolaa..." onInput={(event) => this.handleInput(event.target.value)} />
                             <button className="uk-button uk-button-danger uk-button-large uk-align-center" onClick={this.searchRestaurant}>Haku</button>
                         </form>
+                        
                         {this.state.foundRestaurants.map(restaurant => {
                                 return(
                             <RestaurantCard restaurant_found={true} restaurant={restaurant}/>)
                         })}
+
                     </div>
                     <div>
                     
@@ -80,7 +82,7 @@ class SearchBox extends Component {
                  
     
             </div>
-
+            </div>
            
                
         );

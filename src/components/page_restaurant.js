@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { getRestaurantById, getRestaurantReviewAverage } from '../actions/actions_restaurant';
 import Rating from 'react-rating';
 import RestaurantComments from './Restaurant_Comments';
+import CommentForm from '../components/form_addcomment';
 import Map from './Map';
 
 class RestaurantPage extends Component {
@@ -23,7 +24,7 @@ class RestaurantPage extends Component {
         if (this.props.hasError) {
             return <div>Virhe tapahtui!</div>
         }
-
+      
 
         return _.map(this.props.restaurants.data, restaurant => {
             return _.map(this.props.average.data, average => {
@@ -111,6 +112,8 @@ class RestaurantPage extends Component {
                                         {restaurant.comments.length > 0 ? (
                                             <RestaurantComments />) : (null)}
                                     </div>
+
+                                   
 
                                 </div>
                             </div>

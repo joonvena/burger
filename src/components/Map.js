@@ -39,8 +39,6 @@ class MapComponent extends Component {
         const longitude = this.state.longitude;
         const latitude = this.state.latitude;
 
-        console.log("this is long: " + longitude);
-        console.log("this is lat" + latitude);
 
         return (
             

@@ -29,8 +29,9 @@ class Restaurant extends Component {
     return <div>Virhe tapahtui!</div>
   }
 
-  console.log(this.props.restaurants.data)
+  console.log(this.props.average.data)
 
+return _.map(this.props.average.data, average => {
     return (
       <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
         <div className="uk-grid uk-grid-collapse  restaurant_info_section" uk-grid="true">
@@ -75,17 +76,17 @@ class Restaurant extends Component {
                     <tbody>
                       <tr>
                         <td>Hampurilainen:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
                           fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
                       <tr>
                         <td>Lisukkeet:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
                           fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
                       <tr>
                         <td>Ravintola:</td>
-                        <td><Rating initialRating={3} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
                           fullSymbol="fa fa-star fa-lg" /></td>
                       </tr>
 
@@ -107,10 +108,10 @@ class Restaurant extends Component {
         </div>
       </div>
 
-
-    );
+    )
+    
   }
-  
+  )}
 }
 
 
