@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import Rating from 'react-rating';
+import { Panel, Row, Col } from 'react-bootstrap';
 
 class RestaurantComments extends Component {
 
@@ -13,33 +14,38 @@ class RestaurantComments extends Component {
 
 
     renderCommentsList() {
+    
         return _.map(this.props.comments[0].comments, comment => {
             return (
-
                 <div key={comment._id}>
-                    <article className="uk-comment">
-                        <header className="uk-comment-header uk-grid-medium uk-flex-middle" style={{ 'padding-left': '25px', 'padding-top': '20px' }}
-                            uk-grid="true">
-                            <div className="uk-width-auto">
-                                <img className="uk-comment-avatar" src="/images/profile.jpg" width="80" height="80"
+                <Panel className="comment_box">
+                <Panel.Body>
+                <Row className="show-grid">
+                <Col xs={12} sm={8}>
+                <p><b>{comment.nickname}</b></p>
+                </Col>
+
+                <Col xs={12} sm={4} className="rating">
+                <Rating initialRating={comment.grade} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                                        fullSymbol="fa fa-star fa-lg" />
+                </Col>
+                </Row>
+
+                <Row className="show-grid">
+                <Col xs={12} sm={2}>
+                <img src="/images/profile.jpg" width="80" height="80"
                                     alt="" />
-                            </div>
-                            <div className="uk-width-expand">
-                                <h4 className="uk-comment-title uk-margin-remove"><a className="uk-link-reset"
-                                    href="#">{comment.nickname}</a></h4>
-                                <ul className="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
-                                    <li><Rating initialRating={comment.grade} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
-                                        fullSymbol="fa fa-star fa-lg" /></li>
-                                </ul>
-                            </div>
-                        </header>
-                        <div className="uk-comment-body">
-                            <p>{comment.text}</p>
-                        </div>
-                    </article>
-                </div>
+                </Col>
+                <Col xs={12} sm={10}>
+                {comment.text}
+                </Col>
+               
+                </Row>
+                    
 
-
+                </Panel.Body>
+                 </Panel>
+                 </div>
 
             );
         });
@@ -55,12 +61,12 @@ class RestaurantComments extends Component {
             return <p>Ladataan...</p>
         }
 
-        return (
+
+            return (
+                this.renderCommentsList()
+            )
 
 
-            this.renderCommentsList()
-
-        )
     };
 
 }

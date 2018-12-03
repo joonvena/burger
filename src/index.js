@@ -15,11 +15,10 @@ import Restaurant from './components/restaurant';
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>
-        <div className="uk-container uk-container-expand uk-padding-remove">
-        <div className="uk-cover-container uk-height-viewport">
-            <img src="/images/burgerheader.jpg" alt="" uk-cover="true" />
-            <div className="uk-position-top">
+        <div>
 
+        <NavigationBar />
+        
        
 
                     
@@ -29,11 +28,10 @@ ReactDOM.render(
                     <Route path ="/restaurants/restaurant" component={Restaurant}/>
                     <Route path="/" component={IndexPage}/> 
                 </Switch>
-                </div>
-          </div>
+                
           </div>
 
 
         </BrowserRouter>
     </Provider>
-    , document.querySelector('.uk-cont'));
+    , document.querySelector('.container-fluid'));

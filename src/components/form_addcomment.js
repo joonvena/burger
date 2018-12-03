@@ -30,6 +30,30 @@ class AddComment extends Component {
         this.props.initialize(initData);
     }
 
+    renderField(field) {
+        const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+
+        return (
+            <div className={className}>
+                <label>{field.label}</label>
+                <input className="form-control" type="text" placeholder={field.placeholder} {...field.input} />
+                <div className="text-help">{field.meta.touched ? field.meta.error : ''}</div>
+            </div>
+        );
+    }
+
+    renderhiddenField(field) {
+        const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : ''}`;
+
+        return (
+            <div className={className}>
+                <label>{field.label}</label>
+                <input className="form-control" type="hidden" placeholder={field.placeholder} {...field.input} />
+                
+            </div>
+        );
+    }
+
     onSubmit(values) {
         // Kun formi on lähetetty ohjataan 
         // käyttäjä takaisin /ravintolat juureen
@@ -46,20 +70,26 @@ class AddComment extends Component {
 
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-            <fieldset className="uk-fieldset" />
-            <div className="uk-margin">
-            <input className="uk-input" type="text" name="nickname" placeholder="Nimimerkki" />
-            <Rating {...this.props} initialRating={this.state.value} onClick={this.handleClick} />
-            </div>
-            <fieldset className="uk-fieldset" />
-            <div className="uk-margin">
-            <input className="uk-input" type="text" name="text" placeholder="Arvostelu" />
-            </div>
-            <fieldset className="uk-fieldset" />
-            <div className="uk-margin">
-            <input className="uk-input" type="hidden" name="restaurantid" />
-            </div>
-            <button type="submit">Lisää</button>
+                <Field
+                    label="Nimimerkki"
+                    placeholder="Nimimerkki"
+                    name="nickname"
+                    component={this.renderField} />
+                    <p>Arvosana</p>
+                    <Rating {...this.props} initialRating={this.state.value} onClick={this.handleClick} />
+                <Field
+                    name="grade"
+                    component={this.renderhiddenField} />
+                <Field
+                    label="Arvostelu"
+                    placeholder="Anna lyhyt arvio ravintolasta"
+                    name="text"
+                    component={this.renderField} />
+                <Field
+                    name="restaurantid"
+                    component={this.renderhiddenField} />
+                <button type="submit" className="btn btn-primary">Lisää</button>
+                <Link to="/" className="btn btn-danger">Poistu</Link>
             </form>
         );
     }

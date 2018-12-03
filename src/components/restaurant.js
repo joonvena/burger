@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import { Panel, Row, Col, Grid } from 'react-bootstrap';
 import { getRestaurantReviewAverage, getRestaurantById } from '../actions/actions_restaurant';
 import Rating from 'react-rating';
 import RestaurantComments from './Restaurant_Comments';
@@ -29,83 +30,53 @@ class Restaurant extends Component {
     return <div>Virhe tapahtui!</div>
   }
 
-  console.log(this.props.average.data)
-
 return _.map(this.props.average.data, average => {
     return (
-      <div className="uk-panel-scrollable uk-height-viewport uk-position-top" style={{ 'paddingTop': '70px' }}>
-        <div className="uk-grid uk-grid-collapse  restaurant_info_section" uk-grid="true">
-          <div className="uk-width-1-4"></div>
-          <div className="uk-width-1-2@s">
-            <div className="uk-width-1-1">
-              <div className="uk-card-header uk-card-default uk-card">
-                <div className="uk-grid-small uk-flex-middle" uk-grid="true">
-                  <div className="uk-width-auto">
-                    <img className="uk-border-circle" width="40" height="40" src="/images/burger_review.png" />
-                  </div>
-                  <div className="uk-width-2-3@s">
-                  <div className="uk-width-1-1">
-                    <h3 className="uk-card-title uk-margin-remove-bottom">{this.state.restaurant.name}</h3>
-                    <p className="uk-text-meta uk-margin-remove-top">{this.state.restaurant.address},
-                                     {this.state.restaurant.city}</p>
-                  </div>
-                  </div>
 
-                  <div className="uk-width-auto uk-position-right" style={{ 'marginRight': '20px', 'marginTop': '20px' }}>
-                    <a href="#offcanvas-slide"
-                      uk-toggle><span uk-icon="icon: menu; ratio: 2"></span></a>
-                  </div>
+      <div>
 
-                </div>
+        <Grid fluid className="splash_search">
+                    <Row className="show-grid">
+                        <Col xs={12} sm={12}>
+                            <Col xs={12} sm={3} />
+                            <Col xs={12} sm={6} className="site_container">
 
-
-                <hr className="uk-diver-small" />
-              </div>
-
-              <div className="uk-card uk-card-body_new uk-card-body uk-card-default uk-grid-collapse uk-child-width-expand@s uk-child-width-1-1 uk-margin-remove-top"
-                uk-grid="true">
-                <div className="uk-flex-last uk-card-media-right uk-cover-container map_container">
-                  <Map restaurant_address={this.state.restaurant.address} restaurant_city={this.state.restaurant.city} />
-                  <canvas width="600" height="400"></canvas>
-                </div>
-
-
-                <div className="uk-card-body_new_index uk-width-expand">
-                  <h3 className="uk-card-title">Arvosanat</h3>
-                  <table class="uk-table">
-                    <tbody>
-                      <tr>
-                        <td>Hampurilainen:</td>
-                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
-                          fullSymbol="fa fa-star fa-lg" /></td>
-                      </tr>
-                      <tr>
-                        <td>Lisukkeet:</td>
-                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
-                          fullSymbol="fa fa-star fa-lg" /></td>
-                      </tr>
-                      <tr>
-                        <td>Ravintola:</td>
-                        <td><Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
-                          fullSymbol="fa fa-star fa-lg" /></td>
-                      </tr>
-
-                    </tbody>
-                  </table>
-                </div>
-
-
-              </div>
-
-
-              <div className="uk-width-1-1 comment" style={{ 'margin-bottom': '150px' }}>
-                {this.state.restaurant.comments.length > 0 ? (
+      <Panel>
+        <Panel.Heading>{this.state.restaurant.name}, {this.state.restaurant.address}, {this.state.restaurant.city}</Panel.Heading>
+        <Panel.Body>
+          <Row className="show-grid">
+          <Col xs={12} sm={6}>
+          <h4>Arvostelut</h4>
+          <p>Hampurilainen: <Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></p>
+          <p>Lisukkeet: <Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></p>
+          <p>Ravintola: <Rating initialRating={average.average} readonly={true} style={{ 'color': '#ffd942' }} emptySymbol="fa fa-star-o fa-lg"
+                          fullSymbol="fa fa-star fa-lg" /></p>
+          </Col>
+          <Col xs={12} sm={6}>
+          <Map restaurant_address={this.state.restaurant.address} restaurant_city={this.state.restaurant.city} />
+          </Col>
+          </Row>
+          <Row className="show-grid comment_section">
+          <Col xs={12} sm={12} style={{'paddingTop': '30px'}}>
+          <h4>Kommentit ({this.state.restaurant.comments.length})</h4>
+          {this.state.restaurant.comments.length > 0 ? (
+                  
                   <RestaurantComments comments_list={this.state.restaurant.comments} comments={this.props.restaurants.data}/>) : (null)}
-              </div>
+          </Col>
+          
+          </Row>
+          
 
-            </div>
-          </div>
-        </div>
+        </Panel.Body>
+      </Panel>
+
+      </Col>
+      </Col>
+      </Row>
+      </Grid>
+
       </div>
 
     )

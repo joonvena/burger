@@ -33,7 +33,8 @@ class MapComponent extends Component {
 
         const style = {
             height: '300px',
-            width: '100%'
+            width: '100%',
+            position: 'static'
         }
 
         const longitude = this.state.longitude;
@@ -41,7 +42,6 @@ class MapComponent extends Component {
 
 
         return (
-            
             <Map
             google={this.props.google}
             style={style}

@@ -1,0 +1,152 @@
+body {
+    font-family: 'Lato', sans-serif !important;
+    font-size: 16px !important;
+    background-color: #fac8bf;
+}
+
+.splash_search h1 {
+    color: #FFF;
+}
+
+.header_logo {
+    text-align: center;
+    width: 30%;
+    height: 30%;
+    margin-top: 30px;
+}
+
+.panel {
+    box-shadow: 0 !important;
+    border: 0 !important;
+}
+
+.panel-default {
+    border: 0 !important;
+}
+
+.panel-default>.panel-heading {
+    background-color: #FFF !important;
+    background-image: none !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+    border-color: #fac8bf;
+}
+
+.burger_search {
+    margin-top: 50px;
+    padding: 30px;
+    opacity: 0.8;
+    font-size: 20px;
+}
+
+.site_container {
+    background-color: #FFF;
+    border: 1px solid #ddd;
+    margin-top: 100px;
+    border-radius: 5px;
+    margin-bottom: 100px;
+}
+
+
+.result_list {
+    margin-bottom: 10px;
+}
+
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+nav, .navbar-collapse, .collapse, .navbar-header, .navbar-default, .navbar-brand {
+    background-color: #000 !important;
+    background-image: none !important;
+    border-radius: 0 !important;
+    color: #FFF !important;
+    border: 0 !important;
+}
+
+.navbar-default a {
+    color: #FFF !important;
+}
+
+.navbar-default a:hover {
+    color: #CCC !important;
+}
+
+.map_container  {
+    margin-top: 20px;
+}
+
+.restaurant_search {
+    padding: 25px !important;
+}
+
+.restaurant_search_button {
+    text-decoration: none !important;
+    border: 0 !important;
+    background: #a50000 !important;
+    color: #FFF !important;
+    padding: 15px !important;
+    width: 150px;
+    border-radius: 5px;
+}
+
+.restaurant_search_button:hover {
+    background-color: #b60000 !important;
+}
+
+.add_restaurant_button {
+    text-decoration: none !important;
+    border: 0 !important;
+    background: #a50000 !important;
+    color: #FFF !important;
+    padding: 15px !important;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.add_restaurant_button:hover {
+    background-color: #b60000 !important;
+}
+
+.add_restaurant_input {
+    padding: 15px !important;
+    width: 100% !important;
+    border-radius: 5px !important;
+    text-decoration: none !important;
+    border: 1px solid #CCC;
+}
+
+.top_restaurants_banner {
+    width: 100%;
+    text-align: center;
+    color: #FFF;
+    padding: 20px;
+    background-color: #000;
+}
+
+.top_restaurants_banner h2 {
+    padding: 0;
+    margin: 0;
+}
+
+.top_restaurants_list {
+    font-size: 20px;
+    text-align: center;
+    border-radius: 0px !important;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.comment_box {
+    border: 1px solid #ccc !important;
+}
+
+.rating {
+    text-align: right !important;
+}
+
